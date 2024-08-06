@@ -1,0 +1,27 @@
+.container {
+  margin-bottom: 10px;
+}
+
+.container label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.container input[type="range"] {
+  margin-top: 5px;
+}
+
+.container span {
+  margin-top: 5px;
+  font-weight: normal;
+}
+
+.error {
+  border: 1px solid red;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 12px;
+}

@@ -1,0 +1,11 @@
+.form {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 0 16px;
+}
