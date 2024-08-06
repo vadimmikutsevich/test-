@@ -1,5 +1,7 @@
 .container {
-  margin-bottom: 10px;
+  background-color: aliceblue;
+  padding: 8px;
+  border-radius: 8px;
 }
 
 .error {

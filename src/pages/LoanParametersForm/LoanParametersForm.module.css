@@ -1,6 +1,7 @@
 .form {
   display: flex;
   flex-flow: column nowrap;
+  gap: 12px 0;
 }
 
 .buttonContainer {

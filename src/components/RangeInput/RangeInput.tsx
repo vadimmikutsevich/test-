@@ -22,7 +22,7 @@ const RangeInput = ({
           max={max}
           step={step}
           onChange={(e) => onChange(Number(e.target.value))}
-          className={showError ? styles.error : ""}
+          className={showError ? styles.error : styles.input}
         />
         <span>{value}</span>
       </label>

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useFormContext } from "../../context/FormContext";
+import { useModalContext } from "../../context/ModalContext";
+
 import { RangeInput } from "../../components/RangeInput";
 import { BackButton } from "../../components/BackButton";
 import { SubmitButton } from "../../components/SubmitButton";
@@ -12,6 +14,7 @@ import { submitLoanApplication } from "../../services/api";
 const LoanParametersForm = () => {
   const navigate = useNavigate();
   const { formData, setFormData } = useFormContext();
+  const { showModal } = useModalContext();
   const [showError, setShowError] = useState({
     loanAmount: false,
     loanTerm: false,
@@ -34,15 +37,18 @@ const LoanParametersForm = () => {
       const result = await submitLoanApplication(
         `${formData.firstName} ${formData.lastName}`
       );
-      alert(
-        `Поздравляем, ${formData.lastName} ${formData.firstName}. Вам одобрена сумма ${formData.loanAmount} на ${formData.loanTerm} дней.`
+      showModal(
+        <div>
+          <p>
+            Поздравляем, {formData.lastName} {formData.firstName}. Вам одобрена
+            сумма {formData.loanAmount} на {formData.loanTerm} дней.
+          </p>
+        </div>
       );
       console.log(result);
     } catch (error) {
       console.error("Ошибка при отправке данных:", error);
     }
-
-    navigate("/");
   };
 
   const handleChange = (field: string, value: number) => {
